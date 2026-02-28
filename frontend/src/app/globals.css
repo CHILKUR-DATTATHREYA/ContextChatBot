@@ -144,6 +144,11 @@
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.05);
 }
 
+/* Thin gradient divider */
+.cosmic-divider {
+  background: linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.2) 30%, rgba(139, 92, 246, 0.3) 50%, rgba(139, 92, 246, 0.2) 70%, transparent 100%);
+}
+
 /* The iconic horizon glow */
 .horizon-glow {
   position: absolute;

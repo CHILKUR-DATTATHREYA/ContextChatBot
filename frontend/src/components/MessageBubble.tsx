@@ -15,11 +15,11 @@ export function MessageBubble({ message }: { message: ChatMessage }) {
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
             className={`flex w-full ${isUser ? "justify-end" : "justify-start"} mb-5`}
         >
-            <div className={`flex gap-3 max-w-[82%] ${isUser ? "flex-row-reverse" : "flex-row"}`}>
+            <div className={`flex gap-3 max-w-[75%] ${isUser ? "flex-row-reverse" : "flex-row"}`}>
                 {/* Avatar */}
                 <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-0.5 ${isUser
-                    ? "bg-gradient-to-br from-violet-500 to-indigo-600 shadow-[0_0_24px_rgba(139,92,246,0.5)] ring-2 ring-violet-500/20"
-                    : "cosmic-glass border border-white/[0.15] shadow-[0_0_20px_rgba(139,92,246,0.15)] ring-2 ring-white/[0.05]"
+                    ? "bg-gradient-to-br from-violet-500 to-indigo-600"
+                    : "cosmic-glass border border-white/[0.15]"
                     }`}>
                     {isUser
                         ? <User className="w-3.5 h-3.5 text-white" />
@@ -31,8 +31,8 @@ export function MessageBubble({ message }: { message: ChatMessage }) {
                 <div className={`
                     relative px-5 py-4 text-[0.95rem] leading-relaxed rounded-2xl border
                     ${isUser
-                        ? "bg-gradient-to-br from-violet-600/90 to-indigo-700/90 text-white/95 rounded-tr-sm shadow-[0_8px_32px_rgba(139,92,246,0.25)] border-violet-400/20"
-                        : "cosmic-glass-panel text-slate-200 rounded-tl-sm shadow-[0_8px_32px_rgba(0,0,0,0.4)] border-white/[0.05]"
+                        ? "bg-gradient-to-br from-violet-600/90 to-indigo-700/90 text-white/95 rounded-tr-sm border-violet-400/20"
+                        : "cosmic-glass-panel text-slate-200 rounded-tl-sm border-white/[0.05]"
                     }
                 `}>
                     {!isUser ? (

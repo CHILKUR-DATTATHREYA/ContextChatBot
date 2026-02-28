@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, Menu, X, Paperclip, Sparkles } from "lucide-react";
+import { Send, Menu, X, Paperclip, Sparkles, PanelLeftClose, PanelLeft } from "lucide-react";
 import { useRagBackend } from "@/hooks/useRagBackend";
 import { BackgroundWrapper } from "@/components/BackgroundWrapper";
 import { UploadZone } from "@/components/UploadZone";
@@ -10,7 +10,8 @@ import { MessageBubble } from "@/components/MessageBubble";
 import { QuickActions } from "@/components/QuickActions";
 
 export function ChatInterface() {
-    const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const [isSidebarOpen, setSidebarOpen] = useState(false);        // mobile overlay
+    const [isSidebarCollapsed, setSidebarCollapsed] = useState(true); // desktop toggle
     const [isChatActive, setIsChatActive] = useState(false);
     const [inputValue, setInputValue] = useState("");
 
@@ -71,51 +72,54 @@ export function ChatInterface() {
                     )}
                 </AnimatePresence>
 
-                {/* ═══ Desktop Sidebar ═══ */}
-                <AnimatePresence>
-                    {isChatActive && (
-                        <motion.aside
-                            initial={{ width: 0, opacity: 0 }}
-                            animate={{ width: 320, opacity: 1 }}
-                            exit={{ width: 0, opacity: 0 }}
-                            transition={{ type: "spring", damping: 28, stiffness: 200 }}
-                            className="hidden lg:flex relative flex-shrink-0 h-full cosmic-glass-strong border-r border-white/[0.06] z-30 overflow-hidden"
-                        >
-                            <UploadZone />
-                        </motion.aside>
-                    )}
-                </AnimatePresence>
+                {/* ═══ Desktop Sidebar (collapsible) ═══ */}
+                <motion.aside
+                    initial={false}
+                    animate={{
+                        width: isSidebarCollapsed ? 0 : 320,
+                        opacity: isSidebarCollapsed ? 0 : 1,
+                    }}
+                    transition={{ type: "spring", damping: 28, stiffness: 200 }}
+                    className="hidden lg:flex relative flex-shrink-0 h-full cosmic-glass-strong border-r border-white/[0.06] z-30 overflow-hidden"
+                >
+                    <UploadZone />
+                </motion.aside>
 
                 {/* ═══ Main Content Area ═══ */}
                 <main className="flex-1 flex flex-col relative w-full h-full overflow-hidden">
 
-                    {/* Header Bar */}
-                    <AnimatePresence>
-                        {isChatActive && (
-                            <motion.header
-                                initial={{ opacity: 0, y: -20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                                className="absolute top-0 left-0 right-0 h-14 flex items-center px-4 lg:px-8 z-20 bg-black/20 backdrop-blur-xl border-b border-white/[0.04]"
-                            >
-                                <button
-                                    onClick={() => setSidebarOpen(true)}
-                                    className="lg:hidden p-2 text-slate-500 hover:text-white hover:bg-white/10 rounded-lg transition-all mr-3"
-                                >
-                                    <Menu className="w-5 h-5" />
-                                </button>
-                                <div className="flex items-center gap-2">
-                                    <Sparkles className="w-4 h-4 text-violet-400" />
-                                    <span className="text-sm font-semibold tracking-wide text-slate-300">
-                                        Rag<span className="text-violet-400">Bot</span>
-                                    </span>
-                                </div>
-                            </motion.header>
-                        )}
-                    </AnimatePresence>
+                    {/* Header Bar — always visible */}
+                    <header className="relative top-0 left-0 right-0 h-14 flex items-center px-4 lg:px-6 z-20 bg-black/20 backdrop-blur-xl border-b border-white/[0.04] shrink-0">
+                        {/* Mobile menu button */}
+                        <button
+                            onClick={() => setSidebarOpen(true)}
+                            className="lg:hidden p-2 text-slate-500 hover:text-white hover:bg-white/10 rounded-lg transition-all mr-2"
+                        >
+                            <Menu className="w-5 h-5" />
+                        </button>
+
+                        {/* Desktop sidebar toggle */}
+                        <button
+                            onClick={() => setSidebarCollapsed(!isSidebarCollapsed)}
+                            className="hidden lg:flex p-2 text-slate-500 hover:text-white hover:bg-white/10 rounded-lg transition-all mr-3"
+                            title={isSidebarCollapsed ? "Open sidebar" : "Close sidebar"}
+                        >
+                            {isSidebarCollapsed
+                                ? <PanelLeft className="w-5 h-5" />
+                                : <PanelLeftClose className="w-5 h-5" />
+                            }
+                        </button>
+
+                        <div className="flex items-center gap-2">
+                            <Sparkles className="w-4 h-4 text-violet-400" />
+                            <span className="text-sm font-semibold tracking-wide text-slate-300">
+                                Rag<span className="text-violet-400">Bot</span>
+                            </span>
+                        </div>
+                    </header>
 
                     {/* Flex Layout Container */}
-                    <div className={`flex flex-col w-full h-full max-w-4xl mx-auto px-4 lg:px-8 transition-all duration-700 ease-out ${isChatActive ? "pt-14 pb-0" : "justify-center pt-8"}`}>
+                    <div className={`flex flex-col w-full mx-auto transition-all duration-700 ease-out ${isChatActive ? "flex-1 min-h-0 px-6 lg:px-12" : "h-full justify-center px-4 lg:px-8"}`}>
 
                         {/* ═══ Landing Hero ═══ */}
                         <AnimatePresence>
@@ -166,7 +170,7 @@ export function ChatInterface() {
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.3, duration: 0.5 }}
-                                    className="flex-1 w-full overflow-hidden flex flex-col mb-1 pt-4"
+                                    className="flex-1 w-full overflow-hidden flex flex-col pt-4 min-h-0"
                                 >
                                     <div className="flex-1 w-full pr-2 overflow-y-auto min-h-0 scroll-smooth">
                                         {messages.map((msg) => (
@@ -202,8 +206,13 @@ export function ChatInterface() {
                         <motion.div
                             layout
                             transition={{ type: "spring", damping: 30, stiffness: 200 }}
-                            className={`w-full shrink-0 z-20 relative flex flex-col items-center ${!isChatActive ? "max-w-2xl mx-auto" : "pb-6"}`}
+                            className={`w-full shrink-0 z-20 relative flex flex-col items-center ${!isChatActive ? "max-w-2xl mx-auto" : "pb-4"}`}
                         >
+                            {/* Subtle divider above input when chat is active */}
+                            {isChatActive && (
+                                <div className="w-full h-px cosmic-divider mb-3" />
+                            )}
+
                             <div className="relative w-full group">
                                 {/* Glow layer — pulses when AI is thinking */}
                                 <div className={`absolute -inset-[2px] rounded-2xl bg-gradient-to-r from-violet-600/30 via-indigo-500/20 to-violet-600/30 blur-xl transition-opacity duration-700 z-0 ${isTyping ? "opacity-80 input-glow-pulse" : "opacity-0 group-hover:opacity-40"}`} />
@@ -221,7 +230,14 @@ export function ChatInterface() {
 
                                     <div className="flex items-center justify-between px-2 pb-1">
                                         <button
-                                            onClick={() => setSidebarOpen(true)}
+                                            onClick={() => {
+                                                // On mobile open overlay, on desktop toggle sidebar
+                                                if (window.innerWidth < 1024) {
+                                                    setSidebarOpen(true);
+                                                } else {
+                                                    setSidebarCollapsed(false);
+                                                }
+                                            }}
                                             className="p-2 text-slate-500 hover:text-violet-300 hover:bg-violet-500/10 rounded-lg transition-all duration-200"
                                             title="Attach documents"
                                         >
@@ -247,7 +263,13 @@ export function ChatInterface() {
                                     >
                                         <QuickActions
                                             onActionClick={handleSend}
-                                            onUploadClick={() => setSidebarOpen(true)}
+                                            onUploadClick={() => {
+                                                if (window.innerWidth < 1024) {
+                                                    setSidebarOpen(true);
+                                                } else {
+                                                    setSidebarCollapsed(false);
+                                                }
+                                            }}
                                         />
                                     </motion.div>
                                 )}

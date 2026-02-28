@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function BackgroundWrapper({ children }: { children: ReactNode }) {
     return (
-        <div className="relative h-[100dvh] bg-[#030308] text-slate-100 overflow-hidden font-sans selection:bg-violet-500/30 grain-overlay">
+        <div className="relative h-[100dvh] bg-[#030308] text-slate-100 overflow-clip font-sans selection:bg-violet-500/30 grain-overlay">
             {/* Deep Space Nebula Background */}
             <div className="absolute inset-0 z-0">
                 <Image
