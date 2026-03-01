@@ -11,7 +11,7 @@ from logger import logger
 app = FastAPI(title="RagBot2.0")
 
 # allow frontend dynamically
-frontend_url = os.environ.get("https://rag-bot-omega.vercel.app/", "http://localhost:3000")
+frontend_url = os.environ.get("https://rag-bot-omega.vercel.app", "http://localhost:3000")
 
 app.add_middleware(
     CORSMiddleware,
