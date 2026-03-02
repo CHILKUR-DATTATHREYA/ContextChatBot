@@ -1,17 +1,24 @@
 from langchain_core.prompts import PromptTemplate
 from langchain_classic.chains import RetrievalQA
-from langchain_groq import ChatGroq
+from langchain_google_genai import ChatGoogleGenerativeAI, HarmBlockThreshold, HarmCategory
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 def get_llm_chain(retriever):
-    llm = ChatGroq(
-        groq_api_key=GROQ_API_KEY,
-        model_name="llama-3.3-70b-versatile"
+    llm = ChatGoogleGenerativeAI(
+        model="gemini-2.5-flash",
+        google_api_key=GOOGLE_API_KEY,
+        temperature=0.2,
+        safety_settings={
+            HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
+            HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+            HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+            HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
+        }
     )
 
     prompt = PromptTemplate(

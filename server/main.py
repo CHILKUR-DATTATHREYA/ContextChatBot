@@ -3,6 +3,7 @@ from fastapi import FastAPI, UploadFile, File, Form, Request, Header
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List, Optional
+import google.api_core.exceptions
 from modules.load_vectorstore import load_vectorstore
 from modules.llm import get_llm_chain
 from modules.query_handlers import query_chain
@@ -124,6 +125,9 @@ async def ask_question(
 
     except ValueError as ve:
         return JSONResponse(status_code=400, content={"error": str(ve)})
+    except google.api_core.exceptions.GoogleAPIError as e:
+        logger.exception("Google API Error")
+        return JSONResponse(status_code=503, content={"error": "AI Service temporarily unavailable. Please try again in a few moments."})
     except Exception as e:
         logger.exception("Error processing question")
         return JSONResponse(status_code=500, content={"error": str(e)})

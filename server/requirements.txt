@@ -7,7 +7,6 @@ python-multipart
 langchain
 langchain-community
 langchain-core
-langchain-groq
 
 # Vectorstore
 # chromadb
@@ -17,6 +16,7 @@ pinecone
 # sentence-transformers
 # langchain-google-generative-ai
 langchain-google-genai
+google-generativeai
 
 # Document Parsing
 PyPDF  # backend for PyPDFLoader via langchain_community
