@@ -121,3 +121,47 @@ groq.BadRequestError: Error code: 400 - {'error': {'message': 'Organization has 
 [2026-03-02 11:35:16,834] [INFO] -  Listing documents for user t4Wysftp6PhCYrUH2y4GvqTkjsr1 
 [2026-03-02 11:35:21,210] [INFO] -  User query from t4Wysftp6PhCYrUH2y4GvqTkjsr1: Summarize the uploaded documents 
 [2026-03-02 11:35:29,723] [INFO] -  query successful 
+[2026-03-02 19:43:10,315] [INFO] -  Listing documents for user xPPUSbMvdsSyjNUPnAlh0m4hO2u1 
+[2026-03-02 19:43:13,003] [INFO] -  Listing documents for user xPPUSbMvdsSyjNUPnAlh0m4hO2u1 
+[2026-03-02 19:43:31,658] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: Summarize the uploaded documents 
+[2026-03-02 19:43:42,502] [INFO] -  query successful 
+[2026-03-02 19:46:03,743] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: what are symptoms of fever 
+[2026-03-02 19:46:10,568] [INFO] -  query successful 
+[2026-03-02 19:46:53,145] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: what are my last asked questions 
+[2026-03-02 19:46:57,587] [INFO] -  query successful 
+[2026-03-02 19:47:23,920] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: what are last asked questions 
+[2026-03-02 19:47:29,227] [INFO] -  query successful 
+[2026-03-05 11:18:56,419] [INFO] -  Listing documents for user xPPUSbMvdsSyjNUPnAlh0m4hO2u1 
+[2026-03-05 11:18:59,054] [INFO] -  Listing documents for user xPPUSbMvdsSyjNUPnAlh0m4hO2u1 
+[2026-03-05 11:20:05,446] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: build movie review sentiment analysis project in python using algorrithms rnn and lstm 
+[2026-03-05 11:20:26,326] [INFO] -  query successful 
+[2026-03-05 12:03:34,159] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: hello what is the situation about world war 3  
+[2026-03-05 12:04:02,373] [INFO] -  query successful 
+[2026-03-05 12:04:47,597] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: dont take resource from document tell in general way 
+[2026-03-05 12:04:57,259] [INFO] -  query successful 
+[2026-03-05 12:06:21,319] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: give me last asked questions  
+[2026-03-05 12:06:51,852] [INFO] -  query successful 
+[2026-03-05 12:07:26,502] [INFO] -  Listing documents for user xPPUSbMvdsSyjNUPnAlh0m4hO2u1 
+[2026-03-05 12:08:16,419] [INFO] -  Listing documents for user xPPUSbMvdsSyjNUPnAlh0m4hO2u1 
+[2026-03-05 12:08:57,252] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: generate some chatbot names for kepping unique 
+[2026-03-05 12:09:16,190] [INFO] -  query successful 
+[2026-03-05 12:11:05,393] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: the bot names related to RAGBOT  
+[2026-03-05 12:11:29,986] [INFO] -  query successful 
+[2026-03-05 12:13:36,397] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: ContextBot: Directly states its reliance on context.
+generate title for this name 
+[2026-03-05 12:13:57,178] [INFO] -  query successful 
+[2026-03-07 13:05:57,998] [INFO] -  Received 1 files from user xPPUSbMvdsSyjNUPnAlh0m4hO2u1 
+[2026-03-07 13:08:54,325] [INFO] -  Documents added to Pinecone namespace 'xPPUSbMvdsSyjNUPnAlh0m4hO2u1' 
+[2026-03-07 13:08:54,399] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: hi 
+[2026-03-07 13:08:58,870] [INFO] -  query successful 
+[2026-03-07 13:08:58,965] [INFO] -  Listing documents for user xPPUSbMvdsSyjNUPnAlh0m4hO2u1 
+[2026-03-07 13:09:23,643] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: what is meant by geo politics 
+[2026-03-07 13:09:31,399] [INFO] -  query successful 
+[2026-03-07 14:15:44,373] [INFO] -  Received 1 files from user xPPUSbMvdsSyjNUPnAlh0m4hO2u1 
+[2026-03-07 14:18:44,271] [INFO] -  Documents added to Pinecone namespace 'xPPUSbMvdsSyjNUPnAlh0m4hO2u1' 
+[2026-03-07 14:18:44,345] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: what is rag  
+[2026-03-07 14:18:51,429] [INFO] -  query successful 
+[2026-03-07 14:20:01,714] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: summarize above document 
+[2026-03-07 14:20:08,384] [INFO] -  query successful 
+[2026-03-07 14:20:42,481] [INFO] -  User query from xPPUSbMvdsSyjNUPnAlh0m4hO2u1: what is llm 
+[2026-03-07 14:20:48,791] [INFO] -  query successful 
