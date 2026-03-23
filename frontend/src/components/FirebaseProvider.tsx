@@ -213,7 +213,7 @@ function AuthGateModal({
                                         <Sparkles className="w-7 h-7 text-violet-400" />
                                     </div>
                                     <h2 className="text-xl font-bold dark:text-white text-slate-900 tracking-tight font-display">
-                                        Welcome to RagBot
+                                        Welcome to Context ChatBot
                                     </h2>
                                     <p className="text-sm dark:text-slate-400 text-slate-500 mt-1">
                                         Sign in to save your conversations
