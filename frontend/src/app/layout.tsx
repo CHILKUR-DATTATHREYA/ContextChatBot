@@ -22,7 +22,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "RagBot — AI Document Assistant",
+  title: "Context ChatBot — AI Document Assistant",
   description:
     "Upload your documents and chat with an intelligent AI assistant powered by Retrieval-Augmented Generation.",
 };
