@@ -293,7 +293,7 @@ export function ChatInterface() {
                                         transition={{ delay: 0.15, duration: 0.5 }}
                                         className="text-5xl md:text-7xl font-bold tracking-tight cosmic-title mb-4 text-center"
                                     >
-                                        RagBot
+                                        Context ChatBot
                                     </motion.h1>
 
                                     <motion.p
