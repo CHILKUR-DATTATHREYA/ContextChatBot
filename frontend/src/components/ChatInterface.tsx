@@ -250,7 +250,7 @@ export function ChatInterface() {
                         <div className="flex items-center gap-2">
                             <Sparkles className="w-4 h-4 text-violet-400" />
                             <span className="text-sm font-semibold tracking-wide dark:text-slate-300 text-slate-700">
-                                Rag<span className="text-violet-400 dark:text-violet-400">Bot</span>
+                               Context<span className="text-violet-400 dark:text-violet-400">ChatBot</span>
                             </span>
                         </div>
 
