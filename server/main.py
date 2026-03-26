@@ -14,7 +14,7 @@ app = FastAPI(title="RagBot2.0", root_path="")
 # explicit proper CORS middleware first
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://context-chat-bot.vercel.app/", "http://localhost:3000"],
+    allow_origins=["https://context-chat-bot.vercel.app", "http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
